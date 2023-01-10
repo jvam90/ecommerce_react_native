@@ -1,0 +1,12 @@
+O que é?
+
+React Native é um framework para a criação de aplicações móveis, tanto para ios quanto android, usando
+javascript e react como ferramentas. É possível usar de bibliotecas nativas ou apenas javascript/typescript,
+dependendo da forma como for criado o projeto.
+
+1) expo -> é uma ferramenta feita em cima do CLI do react-native. É uma forma simplificada de criar 
+os projetos, onde o código é feito com javascript. No entanto, é mais limitado, por não poder usar código
+nativo, por exemplo.
+
+2) CLI -> é a forma padrão de criar projetos, podendo se usar de código nativo para deixar a aplicação mais
+robusta. No entanto, requer ambientes de compilação nativos (OSX, por exemplo para iphones).
