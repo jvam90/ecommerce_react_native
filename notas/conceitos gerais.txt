@@ -1,0 +1,23 @@
+Views
+
+Em desenvolvimento mobile, view (tanto android quanto iOS) é um "bloco" que compõe a tela, podendo exibir
+texto, imagens ou responder a entradas do usuário. Views podem conter outras Views. Por exemplo:
+
+<View>
+    <Image source={caminho}>
+    <Text>Algum texto aqui</Text>
+</View>
+
+Em android, as Views são feitas em java ou kotlin. Em iOS, Swift ou objective-c. Com react-native,
+essas Views são invocadas com javascript com componentes react. Em tempo de execução, elas são criadas
+para a plataforma alvo. Essas views são chamadas de nativas, que já vêm inclusas por padrão. Também
+é possível criar componentes customizados.
+
+Alguns exemplos:
+
+1)View: ViewGroup (android), UIView (iOS), div (web)
+2)Text: TextView (android), UITextView (iOS), p (web)
+3)Image: ImageView (android), UIImageView (iOS), img (web)
+4)ScrollView: ScrollView (android), UIScrollView (iOS), div (web)
+
+React native usa a mesma estrutura de api de componentes react.
