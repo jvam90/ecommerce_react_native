@@ -1,0 +1,8 @@
+TouchableOpacity: faz com que uma view reaja ao toque do usuário, que quando ao ser pressionada,
+vai diminuir a opacidade da área.
+
+<TouchableOpacity
+    style={styles.button}
+    onPress={onPress}>
+    <Text>Press Here</Text>
+</TouchableOpacity>
