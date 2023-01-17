@@ -9,16 +9,21 @@ import {
 import icone from "../../../assets/usuario_icone.png";
 import Cartao from "./componentes/Cartao";
 import { anuncios } from "../../../mocks/index.js";
+import { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function Home() {
-  console.log(anuncios);
+  const [usuario, setUsuario] = useState({});
+  useEffect(async () => {
+    setUsuario(JSON.parse(await AsyncStorage.getItem("usuario")));
+  }, []);
   return (
     <>
       <View style={estilos.tela}>
         <View style={estilos.cabecalho}>
           <View>
             <Text>Bem-vindo,</Text>
-            <Text style={estilos.nome}>João Víctor Alves Martins</Text>
+            <Text style={estilos.nome}>{usuario.nome}</Text>
           </View>
           <Image source={icone} style={estilos.icone}></Image>
         </View>
