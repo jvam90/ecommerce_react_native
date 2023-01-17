@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import { TouchableOpacity } from "react-native-web";
+import { CheckBox, TouchableOpacity } from "react-native-web";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import NavBar from "./componentes/NavBar";
 function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [manterConectado, setManterConectado] = useState(false);
+
+  const loginApple = () => {
+    alert("Login com Apple ID não implementado!");
+  };
+
+  const loginGmail = () => {
+    alert("Login com Gmail não implementado!");
+  };
+
+  const clicarCheckbox = () => {
+    setManterConectado(!manterConectado);
+  };
+
   return (
     <>
       <View style={estilos.cabecalho}></View>
-      <NavBar></NavBar>
       <View style={estilos.tela}>
         <Text style={estilos.entrar}>Entrar</Text>
         <Text style={estilos.cadastro}>
@@ -44,15 +57,31 @@ function Login({ navigation }) {
         >
           <Text style={estilos.textoBotaoLogIn}>Log In</Text>
         </TouchableOpacity>
+        <View style={estilos.linha}>
+          <View style={estilos.checkboxContainer}>
+            <CheckBox
+              style={estilos.checkbox}
+              value={manterConectado}
+              onValueChange={setManterConectado}
+              color={true ? "#FF7A00" : undefined}
+            ></CheckBox>
+            <TouchableOpacity onPress={clicarCheckbox} activeOpacity={1.0}>
+              <Text>Mantenha-me conectado</Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity>
+            <Text style={estilos.linkEsqueciSenha}>Esqueci minha senha</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <Text style={estilos.separador}>OR</Text>
 
-      <TouchableOpacity style={estilos.botaoSignUp} onPress={() => {}}>
+      <TouchableOpacity style={estilos.botaoSignUp} onPress={loginGmail}>
         <MaterialCommunityIcon name="google" size={20} color="#000000" />
         <Text style={estilos.textoBotaoSignUp}>Entrar com Gmail</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={estilos.botaoSignUp} onPress={() => {}}>
+      <TouchableOpacity style={estilos.botaoSignUp} onPress={loginApple}>
         <MaterialCommunityIcon name="apple" size={20} color="#000000" />
         <Text style={estilos.textoBotaoSignUp}>Entrar com Apple ID</Text>
       </TouchableOpacity>
@@ -117,6 +146,22 @@ const estilos = StyleSheet.create({
   textoBotaoSignUp: {
     textAlign: "center",
     marginStart: 5,
+  },
+  linha: {
+    flexDirection: "row",
+    marginTop: 10,
+    justifyContent: "space-between",
+  },
+  linkEsqueciSenha: {
+    color: "#FF7A00",
+    fontWeight: "bold",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+  },
+  checkbox: {
+    alignSelf: "center",
+    marginEnd: 5,
   },
 });
 
