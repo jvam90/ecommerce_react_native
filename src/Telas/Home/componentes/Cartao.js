@@ -26,6 +26,7 @@ const estilos = StyleSheet.create({
     borderRadius: 10,
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     padding: 20,
     shadowColor: "#000",
     shadowOffset: {
@@ -51,6 +52,7 @@ const estilos = StyleSheet.create({
     fontWeight: "bold",
   },
   imagemCartao: {
+    marginTop: 5,
     width: 100,
     height: 100,
   },

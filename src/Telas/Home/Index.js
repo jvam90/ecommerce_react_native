@@ -1,47 +1,27 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import Cartao from "./componentes/Cartao";
-import { anuncios } from "../../../mocks/index.js";
+import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "./componentes/Header";
+import Anuncios from "./componentes/Anuncios";
+import Ofertas from "./componentes/Ofertas";
 
 function Home() {
   const [usuario, setUsuario] = useState({});
-  useEffect(async () => {
-    setUsuario(JSON.parse(await AsyncStorage.getItem("usuario")));
+  useEffect(() => {
+    async function pegarDados() {
+      setUsuario(JSON.parse(await AsyncStorage.getItem("usuario")));
+    }
+    pegarDados();
   }, []);
   return (
     <>
-      <View style={estilos.tela}>
-        <Header usuario={usuario}></Header>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
-          {anuncios?.map((anuncio) => {
-            return (
-              <Cartao
-                key={anuncio.id}
-                titulo={anuncio.titulo}
-                descricao={anuncio.descricao}
-                textoBotao={anuncio.textoBotao}
-              ></Cartao>
-            );
-          })}
+      <SafeAreaView style={estilos.tela}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Header usuario={usuario}></Header>
+          <Anuncios></Anuncios>
+          <Ofertas></Ofertas>
         </ScrollView>
-        <View style={estilos.secaoOfertas}>
-          <View style={estilos.ofertas}>
-            <Text style={estilos.nome}>Ofertas</Text>
-            <TouchableOpacity>
-              <Text style={estilos.linkVerTudo}>Ver Tudo</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
+      </SafeAreaView>
     </>
   );
 }
@@ -49,17 +29,6 @@ function Home() {
 const estilos = StyleSheet.create({
   tela: {
     margin: 25,
-  },
-  secaoOfertas: {
-    marginTop: 25,
-  },
-  ofertas: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  linkVerTudo: {
-    color: "#ff7a00",
-    fontWeight: "bold",
   },
 });
 
