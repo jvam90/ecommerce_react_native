@@ -5,7 +5,7 @@ function teste() {
   alert("Oi");
 }
 
-function TelaPrincipal() {
+function TelaPrincipal({ navigation }) {
   return (
     <View>
       <Image source={logo} style={estilos.logo} />
@@ -15,11 +15,23 @@ function TelaPrincipal() {
         dinheiro imediato e uma consciência mais limpa.
       </Text>
       <View style={estilos.botoes}>
-        <TouchableOpacity style={estilos.entrar} onPress={teste}>
+        <TouchableOpacity
+          style={estilos.entrar}
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+        >
           <Text style={estilos.textoEntrar}>Entrar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={estilos.cadastrar}>
-          <Text style={estilos.textoCadastrar}>Cadastrar</Text>
+          <Text
+            style={estilos.textoCadastrar}
+            onPress={() => {
+              alert("Não implementado!");
+            }}
+          >
+            Cadastrar
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
