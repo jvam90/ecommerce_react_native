@@ -18,3 +18,24 @@ export const anuncios = [
     textoBotao: "Saiba Mais 3",
   },
 ];
+
+export const usuarios = [
+  {
+    id: 1,
+    nome: "Nome 1",
+    email: "email1@email.com",
+    senha: "123456",
+  },
+  {
+    id: 2,
+    nome: "Nome 2",
+    email: "email2@email.com",
+    senha: "123456",
+  },
+  {
+    id: 3,
+    nome: " Nome 3",
+    email: "email3@email.com",
+    senha: "123456",
+  },
+];
