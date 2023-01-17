@@ -66,6 +66,7 @@ function Login({ navigation }) {
           placeholder={"Senha"}
           keyboardType="password"
           defaultValue={senha}
+          secureTextEntry={true}
           onChangeText={(senha) => setSenha(senha)}
         ></TextInput>
         <TouchableOpacity style={estilos.botaoLogIn} onPress={login}>
