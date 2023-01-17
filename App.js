@@ -1,16 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import TelaPrincipal from "./src/Telas/TelaPrincipal/Index";
+import { NavigationContainer } from "@react-navigation/native";
+import StackRotas from "./src/rotas/StackRotas";
 
 export default function App() {
-  return <TelaPrincipal></TelaPrincipal>;
+  return (
+    <NavigationContainer>
+      <StackRotas></StackRotas>
+    </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
