@@ -50,17 +50,6 @@ const estilos = StyleSheet.create({
   tela: {
     margin: 25,
   },
-  cabecalho: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  nome: {
-    fontWeight: "bold",
-  },
-  icone: {
-    width: 50,
-    height: 50,
-  },
   secaoOfertas: {
     marginTop: 25,
   },
