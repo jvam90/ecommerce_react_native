@@ -2,8 +2,9 @@ import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { CheckBox, TouchableOpacity } from "react-native-web";
 import MaterialCommunityIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { usuarios } from "../../../mocks";
 
-import NavBar from "./componentes/NavBar";
 function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -19,6 +20,22 @@ function Login({ navigation }) {
 
   const clicarCheckbox = () => {
     setManterConectado(!manterConectado);
+  };
+
+  const login = () => {
+    const usuarioBase = usuarios.find(
+      (e) => e.email === email && e.senha === senha
+    );
+    if (usuarioBase) {
+      const jsonValue = JSON.stringify(usuarioBase);
+      AsyncStorage.setItem("usuario", jsonValue).catch((erro) =>
+        console.error(erro)
+      );
+      console.log("teste");
+      navigation.navigate("Home");
+    } else {
+      alert("Usuário inexistente!");
+    }
   };
 
   return (
@@ -51,10 +68,7 @@ function Login({ navigation }) {
           defaultValue={senha}
           onChangeText={(senha) => setSenha(senha)}
         ></TextInput>
-        <TouchableOpacity
-          style={estilos.botaoLogIn}
-          onPress={() => navigation.navigate("Home")}
-        >
+        <TouchableOpacity style={estilos.botaoLogIn} onPress={login}>
           <Text style={estilos.textoBotaoLogIn}>Log In</Text>
         </TouchableOpacity>
         <View style={estilos.linha}>
