@@ -6,6 +6,8 @@ import cartaoCompras1 from "../../../assets/cartao_compras_icon_1.png";
 import cartaoCompras2 from "../../../assets/cartao_compras_icon_2.png";
 import cartaoCompras3 from "../../../assets/cartao_compras_icon_3.png";
 import cartaoCompras4 from "../../../assets/cartao_compras_icon_4.png";
+import { itensRecomendados } from "../../../mocks";
+import ItensRecomendados from "./componentes/ItensRecomendados";
 
 function Loja({ navigation }) {
   return (
@@ -21,10 +23,7 @@ function Loja({ navigation }) {
         <MiniCard imagem={cartaoCompras3} legenda={"Mulher"} />
         <MiniCard imagem={cartaoCompras4} legenda={"Crianças"} />
       </View>
-      <SectionHeader
-        titulo={"Itens recomendados"}
-        link={"Ver Tudo"}
-      ></SectionHeader>
+      <ItensRecomendados produtos={itensRecomendados}></ItensRecomendados>
     </View>
   );
 }

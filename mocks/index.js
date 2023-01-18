@@ -53,3 +53,26 @@ export const ofertas = [
     imagem: oferta2,
   },
 ];
+
+export const itensRecomendados = [
+  {
+    id: 1,
+    preco: "100,00",
+    nome: "Camisa Branca Fit",
+  },
+  {
+    id: 2,
+    preco: "100,00",
+    nome: "Camisa Branca Fit",
+  },
+  {
+    id: 3,
+    preco: "100,00",
+    nome: "Camisa Branca Fit",
+  },
+  {
+    id: 4,
+    preco: "100,00",
+    nome: "Camisa Branca Fit",
+  },
+];
