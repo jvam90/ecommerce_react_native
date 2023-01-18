@@ -1,3 +1,6 @@
+import oferta1 from "../assets/oferta_1.png";
+import oferta2 from "../assets/oferta_2.png";
+
 export const anuncios = [
   {
     id: 1,
@@ -37,5 +40,16 @@ export const usuarios = [
     nome: " Nome 3",
     email: "email3@email.com",
     senha: "123456",
+  },
+];
+
+export const ofertas = [
+  {
+    id: 1,
+    imagem: oferta1,
+  },
+  {
+    id: 2,
+    imagem: oferta2,
   },
 ];

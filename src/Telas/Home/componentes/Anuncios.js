@@ -1,8 +1,7 @@
 import Cartao from "./Cartao";
 import { ScrollView } from "react-native";
-import { anuncios } from "../../../../mocks/index";
 
-function Anuncios() {
+function Anuncios({ anuncios }) {
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}

@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "./componentes/Header";
 import Anuncios from "./componentes/Anuncios";
 import Ofertas from "./componentes/Ofertas";
+import { anuncios, ofertas } from "../../../mocks/index";
 
 function Home() {
   const [usuario, setUsuario] = useState({});
@@ -18,8 +19,8 @@ function Home() {
       <SafeAreaView style={estilos.tela}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Header usuario={usuario}></Header>
-          <Anuncios></Anuncios>
-          <Ofertas></Ofertas>
+          <Anuncios anuncios={anuncios}></Anuncios>
+          <Ofertas ofertas={ofertas}></Ofertas>
         </ScrollView>
       </SafeAreaView>
     </>
