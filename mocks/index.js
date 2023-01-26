@@ -59,20 +59,24 @@ export const itensRecomendados = [
     id: 1,
     preco: "100,00",
     nome: "Camisa Branca Fit",
+    tamanho: "G",
   },
   {
     id: 2,
     preco: "100,00",
     nome: "Camisa Branca Fit",
+    tamanho: "G",
   },
   {
     id: 3,
     preco: "100,00",
     nome: "Camisa Branca Fit",
+    tamanho: "G",
   },
   {
     id: 4,
     preco: "100,00",
     nome: "Camisa Branca Fit",
+    tamanho: "G",
   },
 ];

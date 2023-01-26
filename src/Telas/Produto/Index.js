@@ -18,10 +18,16 @@ const imagens = [modelo1, modelo2, modelo3, modelo4];
 
 function Produto() {
   const [tamanho, setTamanho] = useState("");
+  const [quantidade, setQuantidade] = useState(1);
+  const [imagemAtiva, setImagemAtiva] = useState(0);
   return (
     <>
       <SafeAreaView>
-        <Carrousel imagens={imagens}></Carrousel>
+        <Carrousel
+          imagens={imagens}
+          imagemAtiva={imagemAtiva}
+          setImagemAtiva={setImagemAtiva}
+        ></Carrousel>
         <View style={estilos.tela}>
           <View style={estilos.linhaMiniaturas}>
             {imagens.map((imagem, index) => {
@@ -100,16 +106,24 @@ function Produto() {
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <TouchableOpacity
                   style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
-                  onPress={() => {}}
+                  onPress={() => {
+                    quantidade > 1
+                      ? setQuantidade(quantidade - 1)
+                      : alert("Quantidade mínima!");
+                  }}
                 >
                   <AntIcon name="minus" size={15} color="#000000" />
                 </TouchableOpacity>
 
-                <Text style={{ fontSize: 20, fontWeight: "bold" }}>1</Text>
+                <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                  {quantidade}
+                </Text>
 
                 <TouchableOpacity
                   style={[estilos.botaoNumItens, { marginHorizontal: 10 }]}
-                  onPress={() => {}}
+                  onPress={() => {
+                    setQuantidade(quantidade + 1);
+                  }}
                 >
                   <AntIcon name="plus" size={15} color="#000000" />
                 </TouchableOpacity>
@@ -118,7 +132,9 @@ function Produto() {
 
             <TouchableOpacity
               style={estilos.botaoAddCarrinho}
-              onPress={() => {}}
+              onPress={() => {
+                alert(tamanho);
+              }}
             >
               <Text style={estilos.textoBotaoAddCarrinho}>
                 Adicionar ao Carrinho

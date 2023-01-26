@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Dimensions,
   Image,
@@ -8,13 +9,29 @@ import {
 } from "react-native";
 import Octicon from "react-native-vector-icons/Octicons";
 
-function Carrousel({ imagens }) {
+function Carrousel({ imagens, imagemAtiva, setImagemAtiva }) {
+  const handleChange = (event) => {
+    console.log(event);
+    if (event) {
+      const slide = Math.ceil(
+        event.nativeEvent.contentOffset.x /
+          event.nativeEvent.layoutMeasurement.width
+      );
+      console.log(slide);
+      if (slide != imagemAtiva) {
+        setImagemAtiva(slide);
+      }
+    }
+  };
+
   return (
     <>
       <View style={estilos.container}>
         <ScrollView
           horizontal
-          onScroll={() => {}}
+          onScroll={(event) => {
+            handleChange(event);
+          }}
           showsHorizontalScrollIndicator={false}
           pagingEnabled
         >
@@ -33,7 +50,11 @@ function Carrousel({ imagens }) {
             return (
               <Text
                 key={index}
-                style={index === 2 ? estilos.indicadorAtivo : estilos.indicador}
+                style={
+                  index === imagemAtiva
+                    ? estilos.indicadorAtivo
+                    : estilos.indicador
+                }
               >
                 <Octicon name={"dot-fill"} size={30}></Octicon>
               </Text>

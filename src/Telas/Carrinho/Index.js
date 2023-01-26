@@ -3,25 +3,34 @@ import { SafeAreaView, StyleSheet, FlatList } from "react-native";
 import Header from "./componentes/Header";
 import Item from "./componentes/Item";
 import ResumoCompra from "./componentes/ResumoCompra";
+import { itensRecomendados } from "../../../mocks";
 
-const Carrinho = ({ route, navigation }) => {
-  const { item, tamanho } = route.params;
-
+const Carrinho = () => {
+  console.log(itensRecomendados);
   return (
-    <SafeAreaView style={estilos.tela}>
-      <FlatList
-        style={estilos.lista}
-        data={[item]}
-        renderItem={({ item }) => <Item item={item} tamanho={tamanho} />}
-        keyExtractor={(item) => item.id}
-        ListHeaderComponent={() => {
-          return <Header navigation={navigation} />;
-        }}
-        ListFooterComponent={() => {
-          return <ResumoCompra item={item} />;
-        }}
-      />
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={estilos.tela}>
+        <FlatList
+          style={estilos.lista}
+          data={itensRecomendados}
+          renderItem={({ item }) => (
+            <Item
+              nome={item.nome}
+              tamanho={item.tamanho}
+              preco={item.preco}
+              key={item.id}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+          ListHeaderComponent={() => {
+            return <Header />;
+          }}
+          ListFooterComponent={() => {
+            return <ResumoCompra />;
+          }}
+        />
+      </SafeAreaView>
+    </>
   );
 };
 

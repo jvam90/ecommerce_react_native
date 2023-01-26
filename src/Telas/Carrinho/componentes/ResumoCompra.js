@@ -8,12 +8,12 @@ import {
 } from "react-native";
 import FinalizarCompraModal from "./FinalizarCompraModal";
 
-const ResumoCompra = ({ item }) => {
+const ResumoCompra = () => {
   let [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
-    setSubtotal(item.preco * numItens);
-  }, [numItens]);
+    setSubtotal(0);
+  }, []);
 
   const voucher = subtotal === 0 ? 0 : 100;
   const taxa = subtotal === 0 ? 0 : 20;

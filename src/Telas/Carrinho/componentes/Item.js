@@ -3,7 +3,7 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import modelo1 from "../../../../assets/modelo_1.png";
 
-const Item = ({ item, tamanho }) => {
+const Item = () => {
   return (
     <View style={[estilos.container, estilos.conteudo]}>
       <Image source={modelo1} style={estilos.imagem} />
@@ -32,7 +32,7 @@ const Item = ({ item, tamanho }) => {
               <AntDesignIcon name="minus" size={15} color="#000000" />
             </TouchableOpacity>
 
-            <Text style={{ fontSize: 20, fontWeight: "bold" }}>{numItens}</Text>
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>1</Text>
 
             <TouchableOpacity
               style={[estilos.botaoNumItens, { marginStart: 10 }]}

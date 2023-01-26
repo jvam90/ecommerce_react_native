@@ -10,6 +10,6 @@ export default function App() {
     //   <StackRotas></StackRotas>
     // </NavigationContainer>
     //<Loja></Loja>
-    <Carrinho></Carrinho>
+    <Produto></Produto>
   );
 }
